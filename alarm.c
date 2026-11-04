@@ -1,14 +1,17 @@
 #include<stdio.h>
 #include<time.h>
 #include<string.h>
-void addAlarm(int hour[],int minute[],char label[][50],int* count){
+void addAlarm(int id[],int hour[],int minute[],char label[][50],int* count){
+    id[*count] = *count + 1;
     printf("Enter the hour in 24 hr format : ");
     scanf("%d",&hour[*count]);
     printf("Enter the minutes : ");
     scanf("%d",&minute[*count]);
     printf("Enter the label : ");
     scanf(" %[^\n]", label[*count]); 
-    printf("Alarm set for %02d : %02d  ",hour[*count],minute[*count]);// we use %02d so that it filled zero when empty or single digit
+    printf("\nAlarm ID: %d", id[*count]);
+    printf("\nAlarm set for %02d : %02d  ",hour[*count],minute[*count]);// we use %02d so that it filled zero when empty or single digit
+    printf("\nlabel : %s",label[*count]);
     (*count)++;
     return;
 }
@@ -22,7 +25,9 @@ int main(){
     char label[100][50];
     int count = 0;
     int choice ;
+
     // first screen menu
+
      printf("\n===== ALARM MANAGER =====\n");
         printf("1. Add Alarm\n");
         printf("2. View Alarms\n");
@@ -38,7 +43,7 @@ int main(){
         {
             case 1:
                 // Call addAlarm()
-                addAlarm(hour,minute,label,&count);
+                addAlarm(id,hour,minute,label,&count);
                 break;
 
             case 2:
