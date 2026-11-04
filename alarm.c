@@ -6,26 +6,21 @@ void addAlarm(int hour[],int minute[],char label[][50],int* count){
     scanf("%d",&hour[*count]);
     printf("Enter the minutes : ");
     scanf("%d",&minute[*count]);
+    printf("Enter the label : ");
+    scanf(" %[^\n]", label[*count]); 
     printf("Alarm set for %02d : %02d  ",hour[*count],minute[*count]);// we use %02d so that it filled zero when empty or single digit
     (*count)++;
     return;
 }
 int main(){
-<<<<<<< HEAD
      // stores alarm using array
-=======
-    // stores alarm using array
->>>>>>> cb7154de18ef0212ef634ced10551d49744239b0
     int id[100];
     int hour[100];
     int minute[100];
     int enabled[100];
     int triggered[100]; // To specify the number of alarm ring
     char label[100][50];
-<<<<<<< HEAD
     int count = 0;
-=======
->>>>>>> cb7154de18ef0212ef634ced10551d49744239b0
     int choice ;
     // first screen menu
      printf("\n===== ALARM MANAGER =====\n");
