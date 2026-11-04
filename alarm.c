@@ -13,11 +13,7 @@ void addAlarm(int hour[],int minute[],char label[][50],int* count){
     return;
 }
 int main(){
-<<<<<<< HEAD
      // stores alarm using array
-=======
-    // stores alarm using array
->>>>>>> cb7154de18ef0212ef634ced10551d49744239b0
     int id[100];
     int hour[100];
     int minute[100];
