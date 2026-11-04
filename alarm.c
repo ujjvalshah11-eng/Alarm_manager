@@ -2,7 +2,15 @@
 #include<time.h>
 #include<string.h>
 int main(){
+    // stores alarm using array
+    int id[100];
+    int hour[100];
+    int minute[100];
+    int enabled[100];
+    int triggered[100]; // To specify the number of alarm ring
+    char label[100][50];
     int choice ;
+    // first screen menu
      printf("\n===== ALARM MANAGER =====\n");
         printf("1. Add Alarm\n");
         printf("2. View Alarms\n");
