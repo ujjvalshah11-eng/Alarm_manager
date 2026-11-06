@@ -74,6 +74,52 @@ void viewAlarms(int id[], int hour[], int minute[],
         scanf("%d", &choice);
 }
 
+void deleteAlarm(int id[], int hour[], int minute[],
+                 char label[][50], int *count, int enabled[],int choice)
+{
+    int searchid;
+    int pos = -1;
+
+    if(*count == 0)
+    {
+        printf("No alarms to delete!\n");
+        return;
+    }
+
+    printf("Enter Alarm ID to delete: ");
+    scanf("%d", &searchid);
+
+    for(int i = 0; i < *count; i++)
+    {
+        if(id[i] == searchid)
+        {
+            pos = i;
+            break;
+        }
+    }
+
+    if(pos == -1)
+    {
+        printf("Alarm not found!\n");
+        return;
+    }
+
+    for(int i = pos; i < *count - 1; i++)
+    {
+        id[i] = id[i+1];
+        hour[i] = hour[i+1];
+        minute[i] = minute[i+1];
+        enabled[i] = enabled[i+1];
+        strcpy(label[i], label[i+1]); // it will copy the string
+    }
+
+    (*count)--;
+
+    printf("Alarm deleted successfully!\n");
+    printf("Press 1 for main menu : \n");
+    scanf("%d", &choice);
+}
+
 int main()
 {
     int id[100];
@@ -91,9 +137,7 @@ int main()
         printf("1. Add Alarm\n");
         printf("2. View Alarms\n");
         printf("3. Delete Alarm\n");
-        printf("4. Enable Alarm\n");
-        printf("5. Disable Alarm\n");
-        printf("6. Exit\n");
+        printf("4. Exit\n");
 
         printf("Enter your choice: ");
         scanf("%d", &choice);
@@ -108,15 +152,10 @@ int main()
                 break;
 
             case 3:
+              deleteAlarm(id, hour, minute, label, &count, enabled,choice);
                 break;
 
             case 4:
-                break;
-
-            case 5:
-                break;
-
-            case 6:
                 printf("Exiting Alarm Manager...\n");
                 return 0;
 
