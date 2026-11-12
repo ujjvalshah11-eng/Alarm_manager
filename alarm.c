@@ -3,7 +3,7 @@
 #include <string.h>
 
 void addAlarm(int id[], int hour[], int minute[],
-              char label[][50], int *count, int enabled[])
+              char label[][50], int *count, int enabled[],triggered[])
 {
     int choice;
 
@@ -166,7 +166,7 @@ int main()
 
         switch (choice) {
             case 1:
-                addAlarm(id, hour, minute, label, &count, enabled);
+                addAlarm(id, hour, minute, label, &count, enabled,triggered);
                 break;
 
             case 2:
