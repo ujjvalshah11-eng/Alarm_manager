@@ -3,7 +3,7 @@
 #include <string.h>
 
 void addAlarm(int id[], int hour[], int minute[],
-              char label[][50], int *count, int enabled[],triggered[])
+              char label[][50], int *count, int enabled[])
 {
     int choice;
 
@@ -38,7 +38,7 @@ void addAlarm(int id[], int hour[], int minute[],
             printf("\nStatus: Enabled\n");
         else
             printf("\nStatus: Disabled\n");
-        triggered[*count]=0;
+       
         (*count)++;
 
         printf("\nAdd another alarm?\n");
@@ -166,7 +166,7 @@ int main()
 
         switch (choice) {
             case 1:
-                addAlarm(id, hour, minute, label, &count, enabled,triggered);
+                addAlarm(id, hour, minute, label, &count, enabled);
                 break;
 
             case 2:
