@@ -119,29 +119,7 @@ void deleteAlarm(int id[], int hour[], int minute[],
     printf("Press 1 for main menu : \n");
     scanf("%d", &choice);
 }
-void checkAlarm(int id[], int hour[], int minute[],
-                int enabled[], int triggered[], int count)
-{
-    time_t now = time(NULL);
-    struct tm *current = localtime(&now);
 
-    int currentHour = current->tm_hour;
-    int currentMinute = current->tm_min;
-
-    for (int i = 0; i < count; i++)
-    {
-        if (hour[i] == currentHour &&
-            minute[i] == currentMinute &&
-            enabled[i] == 1 &&
-            triggered[i] == 0)
-        {
-            printf("\nALARM TIME MATCHED!\n");
-            printf("Alarm ID: %d\n", id[i]);
-
-            triggered[i] = 1;
-        }
-    }
-}
 int main()
 {
     int id[100];
